@@ -25,10 +25,10 @@ public class Category implements BaseModel {
 	@GeneratedValue
 	private int id;
 
-	@Column(name = "NAME", nullable = false, unique = true) // trzeb obsłużyć ten wyjątek
+	@Column(name = "NAME", nullable = false, unique = true) 
 	private String name;
 
-	@OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE) // REMOVE
+	@OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE) 
 	private List<Event> events;
 
 	public int getId() {

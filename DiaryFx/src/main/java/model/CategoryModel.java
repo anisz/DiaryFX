@@ -32,11 +32,11 @@ public class CategoryModel {
         initRoot(categories);
     }
 
-    private void initRoot(List<Category> categories) { // tu też się dostaje zwykła lista
+    private void initRoot(List<Category> categories) {
         this.root.getChildren().clear();
         categories.forEach(c->{
             TreeItem<String> categoryItem = new TreeItem<>(c.getName());
-            c.getEvents().forEach(b->{ // tu się wywala dodawanie kategorii jak nie ma książek bo jest nullPointerException, pomogło odświeżenie
+            c.getEvents().forEach(b->{ 
                 categoryItem.getChildren().add(new TreeItem<>(b.getTitle()));
             });
             root.getChildren().add(categoryItem);
@@ -52,13 +52,12 @@ public class CategoryModel {
     }
 
     public void deleteCategoryById() throws ApplicationException, SQLException {
-        Queries.deleteById(Category.class, category.getValue().getId()); // //tu się posługuję tą Observable category!!
-//        Queries.deleteByColumnName(Event.CATEGORY_ID, category.getValue().getId()); // Tutaj chyba kasowanie kaskadowe, hehe chyba działa
+        Queries.deleteById(Category.class, category.getValue().getId()); 
         init();
     }
 
     public void saveCategoryInDataBase(String name) throws ApplicationException {
-        Category category = new Category(); // a tu tworzę zwykłą nową kategorię
+        Category category = new Category(); 
         category.setName(name);
         Queries.create(category);
         init();
@@ -66,8 +65,8 @@ public class CategoryModel {
 
     public void updateCategoryInDataBase() throws ApplicationException {
         Category tempCategory = Queries.findById(Category.class, getCategory().getId());
-        tempCategory.setName(getCategory().getName()); // tutaj zwykłej kategorii ustawiam nazwę pobrana z observable kategorii
-        Queries.create(tempCategory); //i zapisuję do bazy zwykłą kategorię
+        tempCategory.setName(getCategory().getName()); 
+        Queries.create(tempCategory); 
         init();
     }
 

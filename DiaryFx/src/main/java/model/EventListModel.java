@@ -26,11 +26,9 @@ public class EventListModel {
 	private ObservableList<PersonFx> personFxObservableList = FXCollections.observableArrayList();
 	private ObservableList<CategoryFx> categoryFxObservableList = FXCollections.observableArrayList();
 
-	// wybranie jakiegoś elementu w ComboBoxie zapisze tu pozycje -  po bindowaniu wartość zostanie automatycznie zapisana do tego obiektu
 	private ObjectProperty<PersonFx> personFxObjectProperty = new SimpleObjectProperty<>(); 
 	private ObjectProperty<CategoryFx> categoryFxObjectProperty = new SimpleObjectProperty<>();
 
-	// żeby nie trzeba było odwoływać się do bazy danych, zanim stanie się Obserwable przechowuje pobrane książki, po wyczyszczeniu filtra bedą wracać
 	private List<EventFx> eventFxList = new ArrayList<>(); 
 
 	public void init() throws ApplicationException {
@@ -39,7 +37,7 @@ public class EventListModel {
 		events.forEach(event -> {
 			this.eventFxList.add(EventConverter.convertToEventFx(event));
 		});
-		this.eventFxObservableList.setAll(eventFxList); // setAll znaczy wykasuj wszystko co tutaj jest i dodaj od nowa
+		this.eventFxObservableList.setAll(eventFxList);
 
 		initPeople();
 		initCategory();
@@ -62,13 +60,6 @@ public class EventListModel {
 		init();
 	}
 	
-	//na podstawie picture bede szukac eventu
-//	public void searchForEvent(Image image) throws ApplicationException {
-//		class = image.getClass();
-//		Queries.deleteById(Event.class, eventFx.getId());
-//		init();
-//	}   
-
 	private void initPeople() throws ApplicationException {
 		List<Person> personList = Queries.queryForAll(Person.class);
 		this.personFxObservableList.clear();

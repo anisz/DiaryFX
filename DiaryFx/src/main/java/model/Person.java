@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-//import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +30,7 @@ public class Person implements BaseModel{
     @Column(name = "SURNAME", nullable = false)
     private String surname;
     
-    @OneToMany( mappedBy="person", cascade = CascadeType.MERGE) //cascade = CascadeType.PERSIST,
+    @OneToMany( mappedBy="person", cascade = CascadeType.MERGE) 
     private List<Event> events;
     
     public int getId() {

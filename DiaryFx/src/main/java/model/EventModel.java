@@ -29,9 +29,6 @@ import converters.CategoryConverter;
  */
 public class EventModel {
 
-//	static EntityManagerFactory emf = PersistenceManager.getInstance().getEntityManagerFactory();
-//	static EntityManager em = emf.createEntityManager();
-
 	private ObjectProperty<EventFx> eventFxObjectProperty = new SimpleObjectProperty<>(new EventFx());
 	private ObservableList<CategoryFx> categoryFxObservableList = FXCollections.observableArrayList();
 	private ObservableList<PersonFx> personFxObservableList = FXCollections.observableArrayList();
@@ -87,29 +84,16 @@ public class EventModel {
 		}
 	}
 
-	// public void saveEventInDataBase() throws ApplicationException {
-	// Event event = EventConverter.convertToEvent(this.getEventFxObjectProperty());
-	// // z categoryFx i PersonFX pobieram id
-	// Category category = Queries.findById(Category.class,
-	// this.getEventFxObjectProperty().getCategoryFx().getId());
-	// Person person = Queries.findById(Person.class,
-	// this.getEventFxObjectProperty().getPersonFx().getId());
-	// event.setCategory(category);
-	// event.setPerson(person);
-	// Queries.createOrUpdate(event);
-	// }
-
 	public EventFx getEventFxObjectProperty() {
-		return eventFxObjectProperty.get(); // to get to jakies wbudowane w properties jest
+		return eventFxObjectProperty.get(); 
 	}
 
 	public ObjectProperty<EventFx> eventFxObjectPropertyProperty() {
 		return eventFxObjectProperty;
 	}
 
-	// to jest wykorzystywane przy guziku do edycji
 	public void setEventFxObjectProperty(EventFx eventFxObjectProperty) {
-		this.eventFxObjectProperty.set(eventFxObjectProperty); // to robi jakiegos wbudowanego do properiesa set'a
+		this.eventFxObjectProperty.set(eventFxObjectProperty); 
 	}
 
 	public ObservableList<CategoryFx> getCategoryFxObservableList() {

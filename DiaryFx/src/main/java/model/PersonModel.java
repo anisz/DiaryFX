@@ -43,7 +43,6 @@ public class PersonModel {
 
     public void deletePersonInDataBase() throws Exception, SQLException {
     	Queries.deleteById(Person.class, this.getPersonFxObjectPropertyEdit().getId());
-    	//Queries.deleteByColumnName(Event.PERSON_ID, this.getPersonFxObjectPropertyEdit().getId()); //kaskadowe kasowanie
         this.init();	
     }
 
