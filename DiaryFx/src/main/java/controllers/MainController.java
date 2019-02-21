@@ -58,7 +58,7 @@ public class MainController {
 
     public void setAlwaysOnTop(ActionEvent actionEvent) {
        Stage stage = (Stage) borderPane.getScene().getWindow();
-        boolean value = ((CheckMenuItem) actionEvent.getSource()).selectedProperty().get(); // Jaki jest związek pomiędzy tym co zwraca getSource a checkMenuItem? - getSource odziedziczone po Object, eVENToBJECT, ZWRACA oGJECT
+        boolean value = ((CheckMenuItem) actionEvent.getSource()).selectedProperty().get(); 
         stage.setAlwaysOnTop(value);
     }
 

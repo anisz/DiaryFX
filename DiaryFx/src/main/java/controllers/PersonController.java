@@ -5,7 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import model.*;
 
-import java.sql.SQLException; // to będe poprawić na dialog utils
+import java.sql.SQLException; 
 
 import utils.ApplicationException;
 import utils.DialogsUtils;
@@ -63,7 +63,7 @@ public class PersonController {
 				.bind(this.surnameTextField.textProperty());
 		this.addButton.disableProperty()
 				.bind(this.nameTextField.textProperty().isEmpty().or(this.surnameTextField.textProperty().isEmpty()));
-		this.deleteMenuItem.disableProperty() // to jest menu kontekstowe, nieczynne w rzędach w których nie ma danych do usunięcia
+		this.deleteMenuItem.disableProperty() 
 				.bind(this.personTableView.getSelectionModel().selectedItemProperty().isNull());
 	}
 

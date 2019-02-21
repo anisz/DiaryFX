@@ -1,4 +1,4 @@
-package utils; //http://javanotepad.blogspot.com/2007/05/jpa-entitymanagerfactory-in-web.html
+package utils; 
 
 /**
  * Developed by anisz

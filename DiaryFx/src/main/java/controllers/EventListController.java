@@ -174,7 +174,7 @@ public class EventListController {
 							e.printStackTrace();
 							DialogsUtils.errorDialog(e.getMessage());
 						}
-						PictureController pictureController = loader.getController(); // z tym nie otwiera się nowe okno
+						PictureController pictureController = loader.getController();
 				
 						pictureController.setImage(item);
 						
@@ -208,14 +208,6 @@ public class EventListController {
 		return button;
 	}
 	
-	private Button createImageX() {
-		Button button = new Button();
-		Image image = new Image("file:L:\\Programowanie/Kosmo.gif");
-		ImageView imageView = new ImageView(image);
-		button.setGraphic(imageView);
-		return button;
-	}
-
 	public void filterOnActionComboBox() {
 		this.eventListModel.filterEventsList();
 	}
